@@ -24,4 +24,11 @@ class WebhookController < ApplicationController
 
     "Dave recommends your housing payment be less than one quarter of your take home pay. With an annual income of $#{amount}, you can safely spend up to $#{amount.to_i/12/4} per month on housing."
   end
+
+  def how_much_vehicle
+    income = params[:result][:parameters][:income]
+
+    "Dave recommends that the total cost of everything you own that goes down in value be less than half of your annual take home pay."
+    "In your case, the total of stuff you own going down in value should be no more than $#{income.to_i/2}."
+  end
 end
