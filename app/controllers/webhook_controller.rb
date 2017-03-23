@@ -7,6 +7,10 @@ class WebhookController < ApplicationController
       speech = how_much_house
     end
 
+    if params[:result][:action] == "how_much_vehicle"
+      speech = how_much_vehicle
+    end
+
     msg = {
       "speech": speech,
       "displayText": speech,
